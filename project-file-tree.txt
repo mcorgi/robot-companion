@@ -1,0 +1,52 @@
+robot-companion/
+├── CMakeLists.txt              # Builds the robot and glove programs
+├── pico_sdk_import.cmake       # Copied from the Pico SDK
+├── README.md                   # Setup, build instructions, and project overview
+├── .gitignore                  # Excludes generated files and local secrets
+├── common/
+│   ├── protocol.h              # Shared message types and constants
+│   └── protocol.c              # Encode, decode, and validate messages
+├── robot/
+│   ├── main.c                  # Robot startup and task scheduling
+│   ├── config.h                # Robot pin assignments and settings
+│   ├── imu.h
+│   ├── imu.c                   # Read the robot's IMU
+│   ├── estimator.h
+│   ├── estimator.c             # Estimate tilt and angular velocity
+│   ├── encoder.h
+│   ├── encoder.c               # Read wheel position and calculate speed
+│   ├── motor.h
+│   ├── motor.c                 # Control the motor drivers
+│   ├── balance.h
+│   ├── balance.c               # Balance and movement control
+│   ├── distance.h
+│   ├── distance.c              # Read the distance sensor
+│   ├── behavior.h
+│   ├── behavior.c              # Movement and expressive behaviors
+│   ├── safety.h
+│   ├── safety.c                # Detect falls, stale data, and faults
+│   ├── wireless.h
+│   ├── wireless.c              # Receive glove commands
+│   ├── display.h
+│   ├── display.c               # Communicate with the SPI OLED
+│   ├── eyes.h
+│   └── eyes.c                  # Draw and animate the robot's eyes
+├── glove/
+│   ├── main.c                  # Glove startup and task scheduling
+│   ├── config.h                # Glove pin assignments and settings
+│   ├── imu.h
+│   ├── imu.c                   # Read the glove's IMU
+│   ├── gesture.h
+│   ├── gesture.c               # Convert hand orientation into commands
+│   ├── buttons.h
+│   ├── buttons.c               # Read and debounce the buttons
+│   ├── wireless.h
+│   └── wireless.c              # Send commands to the robot
+├── docs/
+│   ├── wiring.md               # Pin assignments and connections
+│   ├── protocol.md             # Wireless message format and timeout rules
+│   ├── control.md              # Controller design and tuning notes
+│   └── testing.md              # Test procedures and results
+└── build/                      # Generated files; don't commit
+
+
